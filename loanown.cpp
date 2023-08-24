@@ -3,7 +3,7 @@
 #include <math.h>
 
 static int compare_with_zero (double x);
-enum count_of_roots {ZERO_ROOTS = 0, ONE_ROOT = 1, TWO_ROOTS = 2,INF_ROOTS = 3, DEFAULT = 4};
+enum count_of_roots {ZERO_ROOTS = 0, ONE_ROOT = 1, TWO_ROOTS = 2,INF_ROOTS = 3};
 int get_coeffs (double *a, double *b, double *c, count_of_roots * nRoots);
 int LinearSolver ( const double b, const double c, double * x1, double * x2, count_of_roots *nRoots);
 void SquareSolver (const double a, const double b, const double c, double * x1, double * x2, count_of_roots *nRoots);
@@ -41,7 +41,8 @@ int get_coeffs (double *a_ptr, double *b_ptr, double *c_ptr, count_of_roots * nR
 
     while (scanf("%lg %lg %lg", a_ptr, b_ptr, c_ptr) != 3)
     {
-        *nRoots = DEFAULT;
+        //*nRoots = DEFAULT;
+        printf("enter new numbers:");
         skip_line ();
     }
     return 0;
@@ -130,8 +131,6 @@ void cases ( double x1, double x2, count_of_roots nRoots) /*int cases*/
             break;
         }
 
-        case DEFAULT:
-        { printf("Invalide input."); }
     }
 
 }
