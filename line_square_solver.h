@@ -1,3 +1,4 @@
+#pragma once
 enum count_of_roots
 {
     ZERO_ROOTS = 0,
