@@ -1,4 +1,4 @@
-.#include "compare_with_zero.h"
+#include "compare_with_zero.h"
 #include<math.h>
 int compare_with_zero (double x)
 {

@@ -18,6 +18,6 @@ int main() /*main*/
         LinearSolver ( &coef, &nRoots);
     else
         SquareSolver ( &coef, &nRoots);
-        cases ( &coef, nRoots);
+    cases ( &coef, nRoots);
 
 }
