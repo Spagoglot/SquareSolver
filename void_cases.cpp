@@ -1,8 +1,10 @@
 #include"void_cases.h"
 
 
-void cases ( double x1, double x2, count_of_roots nRoots) /*int cases*/
+void cases ( struct coefs*aboba, count_of_roots nRoots) /*int cases*/
 {
+    double x1=aboba->x1;
+    double x2=aboba->x2;
     switch(nRoots) /*switch(nRoots)*/
     {
         case ZERO_ROOTS:

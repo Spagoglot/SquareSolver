@@ -7,8 +7,17 @@ enum count_of_roots
     INF_ROOTS = 3
 };
 
-int LinearSolver ( const double b, const double c, double * x1, double * x2, count_of_roots *nRoots);
-void SquareSolver (const double a, const double b, const double c, double * x1, double * x2, count_of_roots *nRoots);
+struct coefs
+{
+    double a;
+    double b;
+    double c;
+    double x1;
+    double x2;
+};
+
+int LinearSolver ( struct coefs *aboba, count_of_roots *nRoots);
+void SquareSolver (struct coefs *aboba, count_of_roots *nRoots);
 
 
 

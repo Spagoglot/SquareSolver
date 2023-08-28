@@ -3,21 +3,23 @@
 #include<math.h>
 
 
-int compare_with_zero (double x)
+// int compare_with_zero (double x)
+// {
+//     double const EPSILON = 1e-9;
+//     if (fabs(x) < EPSILON) return 0;
+//     else if (x < EPSILON) return -1;
+//     else return 1;
+// }
+
+
+int LinearSolver ( struct coefs* aboba, count_of_roots *nRoots) /*LinearSolver*/
 {
-    double const EPSILON = 1e-9;
-    if (fabs(x) < EPSILON) return 0;
-    else if (x < EPSILON) return -1;
-    else return 1;
-}
-
-
-int LinearSolver ( const double b, const double c, double * x1, double * x2, count_of_roots *nRoots) /*LinearSolver*/
-{
-
+    double b = aboba->b;
+    double c = aboba->c;
+    double x1 = aboba->x1;
     if (compare_with_zero (b) != 0)
     {
-        *x1 = -c / b;
+        x1 = -c / b;
         *nRoots = ONE_ROOT;
     }
     else
@@ -34,8 +36,13 @@ int LinearSolver ( const double b, const double c, double * x1, double * x2, cou
     return 0;
 }
 
-void SquareSolver (const double a, const double b, const double c, double * x1, double * x2, count_of_roots *nRoots) /*int SquareSolver*/
+void SquareSolver (struct coefs* aboba, count_of_roots *nRoots) /*int SquareSolver*/
 {
+    double a= aboba->a;
+    double b= aboba->b;
+    double c= aboba->c;
+    double x1=aboba->x1;
+    double x2=aboba->x2;
     double D = b*b-4*a*c;
 
     if (compare_with_zero (D) == -1)
@@ -48,13 +55,13 @@ void SquareSolver (const double a, const double b, const double c, double * x1, 
 
         if (compare_with_zero (D) == 0 )
     {
-        *x1 = *x2 = -b / (2 * a);
+        x1 = x2 = -b / (2 * a);
         *nRoots = ONE_ROOT;
     }
     if (compare_with_zero (D) == 1 )
     {
-        *x1= (-b + sqrt_D) / (2 * a);
-        *x2= (-b - sqrt_D) / (2 * a);
+        x1= (-b + sqrt_D) / (2 * a);
+        x2= (-b - sqrt_D) / (2 * a);
         *nRoots = TWO_ROOTS;
     }
 }
